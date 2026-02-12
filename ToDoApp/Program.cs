@@ -8,16 +8,16 @@ public class Program
     {
         if (string.IsNullOrWhiteSpace(input))
         {
-            Console.WriteLine("Titeln kan inte vara tom. Försök igen.");
+            Console.WriteLine("Ogiltig input. Försök igen!");
             return false;
         }
         return true;
     }
-    public static void Main()
+    public static void DisplayMenu()
     {
-        bool running = true;
         TaskManager taskManager = new TaskManager();
 
+        bool running = true;
         while (running)
         {
             Console.WriteLine("\n=== ToDo-Lista ===");
@@ -71,5 +71,11 @@ public class Program
                     break;
             }
         }
+    }
+    public static void Main()
+    {
+
+        DisplayMenu();
+
     }
 }
