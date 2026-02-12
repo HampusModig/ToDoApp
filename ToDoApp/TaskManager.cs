@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Text;
 
 namespace ToDoApp
@@ -56,6 +57,34 @@ namespace ToDoApp
             {
                 Console.WriteLine("Uppgift inte hittad!");
             }
+        }
+
+        public void EditTask(int Id, string newTitle)
+        {
+            var task = Tasks.Find(t => t.Id == Id);
+            bool run = true;
+            while (run)
+            {     
+                if (string.IsNullOrWhiteSpace(newTitle))
+                {
+                    Console.WriteLine("Titeln får inte vara tom. Ange en giltig titel:");
+                    newTitle = Console.ReadLine();
+                }
+                else if(task != null)
+                    {
+
+                    task.Title = newTitle;
+                    Console.WriteLine("Uppgift uppdaterad.");
+                    run = false;
+                }
+                else
+                {
+                    Console.WriteLine("Uppgift inte hittad.");
+                    run = false;
+                }
+                
+            }
+            
         }
 
         public void DisplayAllTasks()
