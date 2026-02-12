@@ -7,11 +7,12 @@ namespace ToDoApp
     public class TaskManager
     {
         public List<TodoTask> Tasks = new List<TodoTask>();
-        public int IdCounter = 0;
+        public int IdCounter = 1;
 
         public TaskManager() 
         {
-            ReadFromFile("tasks.txt");
+            Tasks = FileManager.ReadFromFile("tasks.txt");
+            IdCounter = Math.Max(IdCounter, Tasks[Tasks.Count-1].Id + 1);
         }
         public void AddTask(string Title)
         {
