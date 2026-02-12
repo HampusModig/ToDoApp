@@ -44,7 +44,6 @@ public class Program
                     break;
 
                 case "2":
-                    // TODO US2: Visa alla uppgifter
                     Console.Clear();
                     if (taskManager.Tasks.Count() == 0)
                     {
@@ -53,9 +52,9 @@ public class Program
                     }
                     taskManager.DisplayAllTasks();
                     break;
+
                 case "3":
                     Console.Clear();
-
                     bool validInput = int.TryParse(Console.ReadLine(), out int id);
                     while (!validInput)
                     {
@@ -64,12 +63,15 @@ public class Program
                     }
                     taskManager.CompleteTask(id);
                     break;
+
                 case "4":
                     // TODO US4: Ta bort uppgift
                     break;
+
                 case "0":
                     running = false;
                     break;
+
                 default:
                     Console.WriteLine("Ogiltigt val, försök igen.");
                     break;
