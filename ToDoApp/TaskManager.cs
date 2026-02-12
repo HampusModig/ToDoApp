@@ -12,7 +12,10 @@ namespace ToDoApp
         public TaskManager() 
         {
             Tasks = FileManager.ReadFromFile("tasks.txt");
-            IdCounter = Math.Max(IdCounter, Tasks[Tasks.Count-1].Id + 1);
+            if (Tasks.Count > 0)
+            {
+                IdCounter = Math.Max(IdCounter, Tasks[Tasks.Count - 1].Id + 1);
+            }
         }
         public void AddTask(string Title)
         {
@@ -42,40 +45,6 @@ namespace ToDoApp
                 foreach(var task in filteredTasks)
                 {
                     Console.WriteLine($"ID: {task.Id} | Titel: {task.Title} | Klar: {(task.IsCompleted ? "Ja" : "Nej")}");
-                }
-            }
-        }
-        public string ListToString() 
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (TodoTask t in Tasks)
-            {
-                sb.AppendLine($"{t.Id};{t.Title};{(t.IsCompleted ? "True" : "False")}");
-            }
-            return sb.ToString();
-        }
-
-        public void WriteToFile(string filePath)
-        {
-            System.IO.File.WriteAllText(filePath, ListToString());
-        }
-
-        public void ReadFromFile(string filePath)
-        {
-            if (System.IO.File.Exists(filePath))
-            {
-                string[] lines = System.IO.File.ReadAllLines(filePath);
-                foreach (string line in lines)
-                {
-                    string[] parts = line.Split(';');
-                    if (parts.Length == 3)
-                    {
-                        int id = int.Parse(parts[0]);
-                        string title = parts[1];
-                        bool isCompleted = bool.Parse(parts[2]);
-                        Tasks.Add(new TodoTask(id, title, isCompleted));
-                        IdCounter = Math.Max(IdCounter, id + 1);
-                    }
                 }
             }
         }
