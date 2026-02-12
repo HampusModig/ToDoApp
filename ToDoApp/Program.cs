@@ -8,16 +8,16 @@ public class Program
     {
         if (string.IsNullOrWhiteSpace(input))
         {
-            Console.WriteLine("Titeln kan inte vara tom. Försök igen.");
+            Console.WriteLine("Ogiltig input. Försök igen!");
             return false;
         }
         return true;
     }
-    public static void Main()
+    public static void DisplayMenu()
     {
-        bool running = true;
         TaskManager taskManager = new TaskManager();
 
+        bool running = true;
         while (running)
         {
             Console.Clear();
@@ -32,20 +32,6 @@ public class Program
             switch (Console.ReadLine())
             {
                 case "1":
-                // TODO US1: Lägga till uppgift
-                /* 
-                        * 1. Skapa TodoTask-klass med properties (Id, Title, IsCompleted)
-                        * 2. Skapa metod AddTask() i TaskManager-klass
-                        * 3. Skapa menyval för "Lägg till uppgift"
-                        * 4. Implementera input-validering (tom titel)
-                        * 5. Testa funktionalitet
-                ✓ Användaren kan välja "Lägg till uppgift" från huvudmenyn​
-                ✓ Programmet ber om en titel för uppgiften​
-                ✓ Uppgiften läggs till i listan med ett unikt ID​
-                ✓ Ett bekräftelsemeddelande visas​
-                ✓ Tom titel ska avvisas med felmeddelande​
-                ✓ Nya uppgifter är automatiskt "inte klara" (IsCompleted = false)
-                */
                     string title;
                     do
                     {
@@ -56,6 +42,7 @@ public class Program
                     taskManager.AddTask(title);
                     Console.WriteLine("Uppgift tillagd!");
                     break;
+
                 case "2":
                     // TODO US2: Visa alla uppgifter
                     Console.Clear();
@@ -76,5 +63,11 @@ public class Program
             }
             Console.ReadLine();
         }
+    }
+    public static void Main()
+    {
+
+        DisplayMenu();
+
     }
 }
