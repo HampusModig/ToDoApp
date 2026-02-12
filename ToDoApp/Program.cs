@@ -108,7 +108,7 @@ public class Program
                     Console.Write("Ange ID på uppgiften du vill redigera: ");
 
                     string input = Console.ReadLine();
-                    int id;
+                    
                     
                     if (int.TryParse(input, out id))
                     {
