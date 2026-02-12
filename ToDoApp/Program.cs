@@ -62,7 +62,7 @@ public class Program
                     break;
                 case "0":
                     running = false;
-                    taskManager.WriteToFile("tasks.txt");
+                    FileManager.WriteToFile("tasks.txt", taskManager.Tasks);
                     break;
                 default:
                     Console.WriteLine("Ogiltigt val, försök igen.");
