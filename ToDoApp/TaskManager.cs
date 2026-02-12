@@ -15,5 +15,12 @@ namespace ToDoApp
             IdCounter++;
         }
 
+        public void DisplayAllTasks()
+        {
+            foreach (TodoTask t in Tasks)
+            {
+                Console.WriteLine($"ID: {t.Id} | Titel: {t.Title} | Klar: {(t.IsCompleted ? "Ja" : "Nej")}");
+            }
+        }
     }
 }

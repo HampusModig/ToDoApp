@@ -20,6 +20,7 @@ public class Program
 
         while (running)
         {
+            Console.Clear();
             Console.WriteLine("\n=== ToDo-Lista ===");
             Console.WriteLine("1. Lägg till");
             Console.WriteLine("2. Visa alla");
@@ -53,9 +54,12 @@ public class Program
                     } 
                     while (!InputValidator(title));
                     taskManager.AddTask(title);
+                    Console.WriteLine("Uppgift tillagd!");
                     break;
                 case "2":
                     // TODO US2: Visa alla uppgifter
+                    Console.Clear();
+                    taskManager.DisplayAllTasks();
                     break;
                 case "3":
                     // TODO US3: Markera som klar
@@ -70,6 +74,7 @@ public class Program
                     Console.WriteLine("Ogiltigt val, försök igen.");
                     break;
             }
+            Console.ReadLine();
         }
     }
 }
