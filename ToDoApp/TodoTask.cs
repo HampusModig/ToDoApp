@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ToDoApp
 {
-    internal class TodoTask
+    public class TodoTask
     {
 
         public int Id { get; set; }
@@ -15,6 +15,12 @@ namespace ToDoApp
             Id = id;
             Title = title;
             IsCompleted = false;
+        }
+        public TodoTask(int id, string title, bool isCompleted)
+        {
+            Id = id;
+            Title = title;
+            IsCompleted = isCompleted;
         }
 
         /* 

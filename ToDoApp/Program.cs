@@ -23,7 +23,7 @@ public class Program
             Console.Clear();
             Console.WriteLine("\n=== ToDo-Lista ===");
             Console.WriteLine("1. Lägg till");
-            Console.WriteLine("2. Visa alla");
+            Console.WriteLine("2. Sök och filtrera");
             Console.WriteLine("3. Markera klar");
             Console.WriteLine("4. Ta bort");
             Console.WriteLine("0. Avsluta");
@@ -39,11 +39,38 @@ public class Program
                         title = Console.ReadLine();
                     } 
                     while (!InputValidator(title));
+
                     taskManager.AddTask(title);
                     Console.WriteLine("Uppgift tillagd!");
                     break;
 
                 case "2":
+                    // TODO US2: Visa alla uppgifter
+                    Console.WriteLine("1. Visa alla");
+                    Console.WriteLine("2. Visa uppgifter som är klara");
+                    Console.WriteLine("3. Visa uppgifter som inte är klara");
+                    switch(Console.ReadLine())
+                    {
+                        case "1":
+                            Console.Clear();
+                            if (taskManager.Tasks.Count() == 0)
+                            {
+                                Console.WriteLine("Inga uppgifter att visa.");
+                                break;
+                            }
+                            taskManager.DisplayAllTasks();
+                            break;
+                            case "2":
+                            taskManager.DisplayTaskByStatus(true);
+                            break;
+                            case "3":
+                            taskManager.DisplayTaskByStatus(false);
+                            break;
+
+                    }
+                    break;
+                case "3":
+                    // TODO US3: Markera som klar
                     Console.Clear();
                     if (taskManager.Tasks.Count() == 0)
                     {
@@ -70,6 +97,7 @@ public class Program
 
                 case "0":
                     running = false;
+                    taskManager.WriteToFile("tasks.txt");
                     break;
 
                 default:
