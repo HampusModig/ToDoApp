@@ -7,16 +7,16 @@ public class Program
     {
         if (string.IsNullOrWhiteSpace(input))
         {
-            Console.WriteLine("Titeln kan inte vara tom. Försök igen.");
+            Console.WriteLine("Ogiltig input. Försök igen!");
             return false;
         }
         return true;
     }
-    public static void Main()
+    public static void DisplayMenu()
     {
-        bool running = true;
         TaskManager taskManager = new TaskManager();
 
+        bool running = true;
         while (running)
         {
             Console.WriteLine("\n=== ToDo-Lista ===");
@@ -26,42 +26,33 @@ public class Program
             Console.WriteLine("4. Ta bort");
             Console.WriteLine("0. Avsluta");
             Console.Write("Välj: ");
-
-            switch (Console.ReadLine())
-            {
-                case "1":
-                // TODO US1: Lägga till uppgift
-                /* 
-                        * 1. Skapa TodoTask-klass med properties (Id, Title, IsCompleted)
-                        * 2. Skapa metod AddTask() i TaskManager-klass
-                        * 3. Skapa menyval för "Lägg till uppgift"
-                        * 4. Implementera input-validering (tom titel)
-                        * 5. Testa funktionalitet
-                ✓ Användaren kan välja "Lägg till uppgift" från huvudmenyn​
-                ✓ Programmet ber om en titel för uppgiften​
-                ✓ Uppgiften läggs till i listan med ett unikt ID​
-                ✓ Ett bekräftelsemeddelande visas​
-                ✓ Tom titel ska avvisas med felmeddelande​
-                ✓ Nya uppgifter är automatiskt "inte klara" (IsCompleted = false)
-                */
-
-
-                case "2":
-                    // TODO US2: Visa alla uppgifter
-                    break;
-                case "3":
-                    // TODO US3: Markera som klar
-                    break;
-                case "4":
-                    // TODO US4: Ta bort uppgift
-                    break;
-                case "0":
-                    running = false;
-                    break;
-                default:
-                    Console.WriteLine("Ogiltigt val, försök igen.");
-                    break;
-            }
+            string input = Console.ReadLine();
+                switch (input)
+                {
+                    case "1":
+                    //TODO US1: Lägg till uppgift                
+                    case "2":
+                        // TODO US2: Visa alla uppgifter
+                        break;
+                    case "3":
+                        // TODO US3: Markera som klar
+                        break;
+                    case "4":
+                        // TODO US4: Ta bort uppgift
+                        break;
+                    case "0":
+                        running = false;
+                        break;
+                    default:
+                        Console.WriteLine("Ogiltigt val, försök igen.");
+                        break;
+                }
         }
+    }
+    public static void Main()
+    {
+
+        DisplayMenu();
+
     }
 }
