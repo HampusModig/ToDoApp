@@ -46,6 +46,11 @@ public class Program
                 case "2":
                     // TODO US2: Visa alla uppgifter
                     Console.Clear();
+                    if (taskManager.Tasks.Count() == 0)
+                    {
+                        Console.WriteLine("Inga uppgifter att visa.");
+                        break;
+                    }
                     taskManager.DisplayAllTasks();
                     break;
                 case "3":
