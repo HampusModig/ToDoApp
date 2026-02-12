@@ -22,6 +22,10 @@ namespace ToDoApp
             Tasks.Add(new TodoTask(IdCounter, Title));
             IdCounter++;
         }
+        public void DeleteTask(int Id)
+        {
+            Tasks.RemoveAll(t => t.Id == Id);
+        }
 
         public void DisplayAllTasks()
         {

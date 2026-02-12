@@ -74,6 +74,18 @@ public class Program
                     break;
                 case "4":
                     // TODO US4: Ta bort uppgift
+                    Console.Clear();
+                    taskManager.DisplayAllTasks();
+                    Console.Write("Ange ID för uppgiften du vill ta bort: ");
+                    if (int.TryParse(Console.ReadLine(), out int deleteId))
+                    {
+                        taskManager.DeleteTask(deleteId);
+                        Console.WriteLine("Uppgift borttagen!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ogiltigt ID, försök igen.");
+                    }
                     break;
                 case "0":
                     running = false;
