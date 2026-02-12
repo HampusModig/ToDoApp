@@ -27,6 +27,35 @@ namespace ToDoApp
             Tasks.RemoveAll(t => t.Id == Id);
         }
 
+        public void CompleteTask(int Id)
+        {
+
+            TodoTask task = Tasks.Find(t => t.Id == Id);
+            if (task != null)
+            {
+                if (task.IsCompleted == false)
+                {
+                    task.IsCompleted = true;
+                    Console.WriteLine("Uppgiften är nu markerad som klar!");
+                }
+                if (task.IsCompleted == true)
+                {
+                    task.IsCompleted = false;
+                    Console.WriteLine("Uppgiften är nu markerad som inte klar!");
+                }
+            }
+
+            if (Tasks.Count() == 0)
+            {
+                Console.WriteLine("Inga uppgifter att markera som klara.");
+            }
+
+            else
+            {
+                Console.WriteLine("Uppgift inte hittad!");
+            }
+        }
+
         public void DisplayAllTasks()
         {
             foreach (TodoTask t in Tasks)

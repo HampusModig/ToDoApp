@@ -70,8 +70,16 @@ public class Program
                     }
                     break;
                 case "3":
-                    // TODO US3: Markera som klar
+                    Console.Clear();
+                    bool validInput = int.TryParse(Console.ReadLine(), out int id);
+                    while (!validInput)
+                    {
+                        Console.WriteLine("Ogiltig input. Ange ett giltigt ID:");
+                        validInput = int.TryParse(Console.ReadLine(), out id);
+                    }
+                    taskManager.CompleteTask(id);
                     break;
+
                 case "4":
                     // TODO US4: Ta bort uppgift
                     Console.Clear();
