@@ -71,6 +71,9 @@ public class Program
                     break;
                 case "3":
                     Console.Clear();
+                    taskManager.DisplayAllTasks();
+                    Console.WriteLine();
+                    Console.Write("Ange ID för uppgiften du vill markera som klar/inte klar: ");
                     bool validInput = int.TryParse(Console.ReadLine(), out int id);
                     while (!validInput)
                     {
