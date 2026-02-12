@@ -33,17 +33,20 @@ namespace ToDoApp
                 {
                     task.IsCompleted = true;
                     Console.WriteLine("Uppgiften är nu markerad som klar!");
+                    return;
                 }
                 if (task.IsCompleted == true)
                 {
                     task.IsCompleted = false;
                     Console.WriteLine("Uppgiften är nu markerad som inte klar!");
+                    return;
                 }
             }
 
             if (Tasks.Count() == 0)
             {
                 Console.WriteLine("Inga uppgifter att markera som klara.");
+                return;
             }
 
             else
