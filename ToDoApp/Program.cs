@@ -1,11 +1,19 @@
-﻿public class Program
+﻿using System.Threading.Tasks;
+using ToDoApp;
+
+public class Program
 {
+    public static bool InputValidator(string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            Console.WriteLine("Titeln kan inte vara tom. Försök igen.");
+            return false;
+        }
+        return true;
+    }
     public static void Main()
     {
-
-        var tasks = new List<(int Id, string Title, bool Done)>();
-        int nextId = 1;
-        bool running = true;
 
         while (running)
         {
@@ -34,7 +42,7 @@
 ✓ Tom titel ska avvisas med felmeddelande​
 ✓ Nya uppgifter är automatiskt "inte klara" (IsCompleted = false)
 */
-            break;
+
         case "2":
             // TODO US2: Visa alla uppgifter
             break;
