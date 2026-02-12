@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading.Channels;
+using System.Threading.Tasks;
 using ToDoApp;
 
 
@@ -26,6 +27,7 @@ public class Program
             Console.WriteLine("2. Sök och filtrera");
             Console.WriteLine("3. Markera klar");
             Console.WriteLine("4. Ta bort");
+            Console.WriteLine("5. Redigera titel");
             Console.WriteLine("0. Avsluta");
             Console.Write("Välj: ");
 
@@ -75,6 +77,30 @@ public class Program
                 case "4":
                     // TODO US4: Ta bort uppgift
                     break;
+                    case "5":
+                // TODO US5: Redigera titel
+                    Console.WriteLine("Du har valt att redigera titeln på en uppgift");
+
+                    taskManager.DisplayAllTasks();
+                    Console.Write("Ange ID på uppgiften du vill redigera: ");
+
+                    string input = Console.ReadLine();
+                    int id;
+                    
+                    if (int.TryParse(input, out id))
+                    {
+                        Console.Write("Ange ny titel: ");
+                        string newTitle = Console.ReadLine();
+
+                        taskManager.EditTask(id, newTitle);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ogiltigt ID. Du måste ange en siffra.");
+                    }
+
+                    break;
+
                 case "0":
                     running = false;
                     FileManager.WriteToFile("tasks.txt", taskManager.Tasks);
