@@ -29,8 +29,6 @@ namespace ToDoApp
 
         public void CompleteTask(int Id)
         {
-            DisplayAllTasks();
-            Console.Write("Ange Id: ");
             TodoTask task = Tasks.Find(t => t.Id == Id);
             if (task != null)
             {
