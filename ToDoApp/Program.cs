@@ -61,6 +61,7 @@ public class Program
                     Console.WriteLine("Ogiltigt val, försök igen.");
                     break;
             }
+            Console.WriteLine("Tryck på Enter för att fortsätta...");
             Console.ReadLine();
         }
     }
