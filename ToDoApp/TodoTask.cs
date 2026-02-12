@@ -16,6 +16,12 @@ namespace ToDoApp
             Title = title;
             IsCompleted = false;
         }
+        public TodoTask(int id, string title, bool isCompleted)
+        {
+            Id = id;
+            Title = title;
+            IsCompleted = isCompleted;
+        }
 
         /* 
         * 1. Skapa TodoTask-klass med properties (Id, Title, IsCompleted)
