@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using ToDoApp;
 
+
 public class Program
 {
     public static bool InputValidator(string input)
@@ -44,8 +45,15 @@ public class Program
                 ✓ Tom titel ska avvisas med felmeddelande​
                 ✓ Nya uppgifter är automatiskt "inte klara" (IsCompleted = false)
                 */
-
-
+                    string title;
+                    do
+                    {
+                        Console.Write("Ange titel för uppgiften: ");
+                        title = Console.ReadLine();
+                    } 
+                    while (!InputValidator(title));
+                    taskManager.AddTask(title);
+                    break;
                 case "2":
                     // TODO US2: Visa alla uppgifter
                     break;
