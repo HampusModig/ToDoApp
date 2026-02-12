@@ -1,4 +1,6 @@
-﻿var tasks = new List<(int Id, string Title, bool Done)>();
+﻿
+
+var tasks = new List<(int Id, string Title, bool Done)>();
 int nextId = 1;
 bool running = true;
 
