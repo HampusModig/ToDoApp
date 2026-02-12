@@ -39,6 +39,7 @@ public class Program
                         title = Console.ReadLine();
                     } 
                     while (!InputValidator(title));
+
                     taskManager.AddTask(title);
                     Console.WriteLine("Uppgift tillagd!");
                     break;

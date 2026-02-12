@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ToDoApp
 {
-    internal class TaskManager
+    public class TaskManager
     {
         public List<TodoTask> Tasks = new List<TodoTask>();
         public int IdCounter = 0;

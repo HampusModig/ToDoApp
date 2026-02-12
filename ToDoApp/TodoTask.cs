@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ToDoApp
 {
-    internal class TodoTask
+    public class TodoTask
     {
 
         public int Id { get; set; }
